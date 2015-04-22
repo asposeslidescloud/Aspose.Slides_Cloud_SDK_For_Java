@@ -8,9 +8,9 @@ import com.aspose.slides.model.ResourceUriElement;
 import com.aspose.slides.model.PlaceholderType;
 public class Placeholder {
   private Integer Index = null;
-  private PlaceholderOrientation Orientation = null;
-  private PlaceholderSize Size = null;
-  private PlaceholderType Type = null;
+  private Integer Orientation = null;
+  private Integer Size = null;
+  private Integer Type = null;
   private ResourceUriElement Shape = null;
   private ResourceUri SelfUri = null;
   private List<ResourceUri> AlternateLinks = new ArrayList<ResourceUri>();
@@ -38,7 +38,7 @@ public class Placeholder {
 	 * Gets PlaceholderOrientation
 	 * @return Orientation
 	 */
-  public PlaceholderOrientation getOrientation() {
+  public Integer getOrientation() {
     return Orientation;
   }
 
@@ -47,7 +47,7 @@ public class Placeholder {
 	 * Sets PlaceholderOrientation
 	 * @param Orientation PlaceholderOrientation
 	 */
-  public void setOrientation(PlaceholderOrientation Orientation) {
+  public void setOrientation(Integer Orientation) {
     this.Orientation = Orientation;
   }
 
@@ -56,7 +56,7 @@ public class Placeholder {
 	 * Gets PlaceholderSize
 	 * @return Size
 	 */
-  public PlaceholderSize getSize() {
+  public Integer getSize() {
     return Size;
   }
 
@@ -65,7 +65,7 @@ public class Placeholder {
 	 * Sets PlaceholderSize
 	 * @param Size PlaceholderSize
 	 */
-  public void setSize(PlaceholderSize Size) {
+  public void setSize(Integer Size) {
     this.Size = Size;
   }
 
@@ -74,7 +74,7 @@ public class Placeholder {
 	 * Gets PlaceholderType
 	 * @return Type
 	 */
-  public PlaceholderType getType() {
+  public Integer getType() {
     return Type;
   }
 
@@ -83,7 +83,7 @@ public class Placeholder {
 	 * Sets PlaceholderType
 	 * @param Type PlaceholderType
 	 */
-  public void setType(PlaceholderType Type) {
+  public void setType(Integer Type) {
     this.Type = Type;
   }
 

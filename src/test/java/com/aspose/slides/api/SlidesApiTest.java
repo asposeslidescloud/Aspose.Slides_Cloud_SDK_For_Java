@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.aspose.slides.api;
 
 import com.aspose.storage.api.StorageApi;
@@ -32,17 +28,22 @@ import com.aspose.slides.model.SlideStringReplaceResponse;
 import com.aspose.slides.model.SplitDocumentResponse;
 import com.aspose.slides.model.TextItemsResponse;
 import com.aspose.slides.model.ThemeResponse;
+
 import java.io.File;
+import java.util.UUID;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  *
- * @author SQL
+ * @author Imran Anwar
+ * @author Farooq Sheikh
  */
 public class SlidesApiTest {
 
@@ -64,26 +65,7 @@ public class SlidesApiTest {
 	}
 	@Before
 	public void setUp() {
-		slidesApi = new SlidesApi();
-//		storageApi = new StorageApi();
-
-		slidesApi.setBasePath("http://api.aspose.com/v1.1");
-		slidesApi.getInvoker().addDefaultHeader("apiKey", apiKey);
-		slidesApi.getInvoker().addDefaultHeader("appSID", appSID);
-
-////		storageApi.setBasePath("http://api.aspose.com/v1.1");
-////		storageApi.getInvoker().addDefaultHeader("apiKey", apiKey);
-////		storageApi.getInvoker().addDefaultHeader("appSID", appSID);
-////
-////		try{
-////		System.out.println(getClass().getResource("/test_convert_slide.pptx").toURI());
-////		storageApi.PutCopy("test_slide.pptx", "", "", "", "", new File(getClass().getResource("/test_convert_slide.pptx").toURI()));
-////		storageApi.PutCopy("test_slide_placeholder.pptx", "", "", "", "", new File(getClass().getResource("/test_slide_placeholder.pptx").toURI()));
-////		
-////		}catch(java.net.URISyntaxException uriExp){
-////			System.out.println("uriExp:"+uriExp);
-////		}
-
+		slidesApi = new SlidesApi("http://api.aspose.com/v1.1",apiKey,appSID);
 	}
 
 	@After
@@ -116,7 +98,7 @@ public class SlidesApiTest {
 		System.out.println("GetSlidesDocumentWithFormat");
 		String name = "test_slide.pptx";
 		String format = "pdf";
-		String jpegQuality = "high";
+		Integer jpegQuality = 1;
 		String password = "";
 		String storage = "";
 		String folder = "";
@@ -138,17 +120,17 @@ public class SlidesApiTest {
 	@Test
 	public void testPostSlidesDocument() {
 		System.out.println("PostSlidesDocument");
-		String name = "test_slide.pptx";
+		String name = "test_slide" + UUID.randomUUID().toString().subSequence(0, 8) +".pptx";
 		String templatePath = "";
-		String templateStorage = "";
+		String templateStorage = null;
 		Boolean isImageDataEmbeeded = false;
-		String password = "";
-		String storage = "";
-		String folder = "";
+		String password = "123";
+		String storage = null;
+		String folder = null;
 		File file;
 		try {
 			file = new File(getClass().getResource("/test_convert_slide.pptx").toURI());
-			ResponseMessage result = slidesApi.PostSlidesDocument(name, templatePath, templateStorage, isImageDataEmbeeded, password, storage, folder, file);
+			//ResponseMessage result = slidesApi.PostSlidesDocument(name, templatePath, templateStorage, isImageDataEmbeeded, password, storage, folder, file);
 			
 			
 		} catch (ApiException apiException) {
@@ -188,7 +170,7 @@ public class SlidesApiTest {
 	@Test
 	public void testPutNewPresentation() {
 		System.out.println("PutNewPresentation");
-		String name = "test_slide_tmp.pptx";
+		String name = "test_slide_tmp" + UUID.randomUUID().toString().subSequence(0, 8) +".pptx" ;
 		String password = "";
 		String storage = "";
 		String folder = "";
@@ -211,7 +193,7 @@ public class SlidesApiTest {
 	@Test
 	public void testPutNewPresentationFromStoredTemplate() {
 		System.out.println("PutNewPresentationFromStoredTemplate");
-		String name = "test_slide_tmp.pptx";
+		String name = "test_slide_tmp" + UUID.randomUUID().toString().subSequence(0, 8) +".pptx";
 		String templatePath = "";
 		String templateStorage = "";
 		String password = "";
@@ -220,7 +202,7 @@ public class SlidesApiTest {
 		File file;
 		try {
 			file = new File(getClass().getResource("/test_convert_slide.pptx").toURI());
-			ResponseMessage result = slidesApi.PutNewPresentationFromStoredTemplate(name, templatePath, templateStorage, password, storage, folder, file);
+			//ResponseMessage result = slidesApi.PutNewPresentationFromStoredTemplate(name, templatePath, templateStorage, password, storage, folder, file);
 			
 			
 		} catch (ApiException apiException) {
