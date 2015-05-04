@@ -1,7 +1,7 @@
 package com.aspose.slides.api;
 
 import com.aspose.storage.api.StorageApi;
-import com.aspose.client.ApiException;
+import com.aspose.slides.client.ApiException;
 import com.aspose.slides.model.ColorSchemeResponse;
 import com.aspose.slides.model.CommonResponse;
 import com.aspose.slides.model.DocumentProperties;

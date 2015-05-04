@@ -1,9 +1,8 @@
 package com.aspose.slides.api;
 
-import com.aspose.client.ApiException;
-import com.aspose.client.ApiInvoker;
-import com.aspose.client.ApiInvokerResponse;
-
+import com.aspose.slides.client.ApiException;
+import com.aspose.slides.client.ApiInvoker;
+import com.aspose.slides.client.ApiInvokerResponse;
 import com.aspose.slides.model.FontSchemeResponse;
 import com.aspose.slides.model.SlideBackgroundResponse;
 import com.aspose.slides.model.SplitDocumentResponse;
@@ -48,11 +47,26 @@ public class SlidesApi {
     apiInvoker.addDefaultHeader(apiInvoker.APP_SID, appSid);
   }
 
+  public SlidesApi(String basePath, String apiKey, String appSid, boolean isDebug) {
+          this.basePath = basePath;
+          apiInvoker.addDefaultHeader(apiInvoker.API_KEY, apiKey);
+          apiInvoker.addDefaultHeader(apiInvoker.APP_SID, appSid);
+          if(isDebug)
+                  apiInvoker.enableDebug();
+  }
+  
   public SlidesApi(String apiKey, String appSid) {
     apiInvoker.addDefaultHeader(apiInvoker.API_KEY, apiKey);
     apiInvoker.addDefaultHeader(apiInvoker.APP_SID, appSid);
   }
 
+  public SlidesApi(String apiKey, String appSid, boolean isDebug) {
+          apiInvoker.addDefaultHeader(apiInvoker.API_KEY, apiKey);
+          apiInvoker.addDefaultHeader(apiInvoker.APP_SID, appSid);
+          if(isDebug)
+                  apiInvoker.enableDebug();
+   }
+  
   public ApiInvoker getInvoker() {
     return apiInvoker;
   }
